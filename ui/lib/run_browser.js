@@ -12,7 +12,17 @@ var commands = [
     '/opt/homebrew-cask/Caskroom/google-chrome'
 ];
 
-module.exports = function (href, cb) {
+module.exports = function (href, opts, cb) {
+    if (typeof opts === 'function') {
+        cb = opts; opts = {};
+    }
+    if (!opts) opts = {};
+    if (!cb) cb = function () {};
+    
+    var extra = [];
+    if (opts.size) extra.push('--window-size=' + opts.size);
+    if (opts.position) extra.push('--window-position=' + opts.position);
+    
     var stack = commands.slice();
     run();
     
@@ -29,7 +39,7 @@ module.exports = function (href, cb) {
             '--app=' + href,
             '--user-data-dir=' + userdir,
             '--no-first-run'
-        ];
+        ].concat(extra);
         var ps = spawn(cmd, args);
         
         var failed = false;

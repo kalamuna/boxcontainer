@@ -19,7 +19,7 @@ var server = http.createServer(function (req, res) {
 server.listen(argv.port, function () {
     var href = 'http://localhost:' + server.address().port;
     if (argv.u) console.log(href)
-    else runBrowser(href, error)
+    else runBrowser(href, argv, error)
 });
 
 function error (err) {
