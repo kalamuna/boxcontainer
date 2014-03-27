@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "ui/server.js"
+  },
+  "dependencies": {
+    "ecstatic": "^0.4.13",
+    "minimist": "^0.0.8"
+  }
+}
