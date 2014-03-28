@@ -1,0 +1,37 @@
+body {
+  margin: 0px;
+}
+
+#header {
+  position: relative;
+  background-color: #451d6d;
+  padding: 10px;
+  padding-bottom: 0px;
+  padding-top: 5px;
+  border-bottom: 2px solid #59397b;
+}
+
+#tabs {
+  background-color: #d4e6f6;
+  padding: 5px;
+  border-bottom: 2px solid #b6d6f5;
+}
+
+#tabs .tab {
+  min-width: 100px;
+  background-color: #5185d8;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  border-width: 0px;
+  border-radius: 2px;
+}
+
+#tabs .tab:hover {
+  background-color: #6998e4;
+}
+
+#tabs .tab.active {
+  background-color: #d98003;
+}
+
