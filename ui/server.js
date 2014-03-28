@@ -3,8 +3,12 @@
 var http = require('http');
 var ecstatic = require('ecstatic');
 var minimist = require('minimist');
+var url = require('url');
 
 var runBrowser = require('./lib/run_browser.js');
+var layout = require('./lib/layout.js');
+var get = require('./lib/get.js');
+var render = require('./lib/render.js');
 
 var argv = minimist(process.argv.slice(2), {
     alias: { p: 'port' },
@@ -13,7 +17,16 @@ var argv = minimist(process.argv.slice(2), {
 
 var est = ecstatic(__dirname + '/static');
 var server = http.createServer(function (req, res) {
-    est(req, res);
+    var u = url.parse(req.url), p = u.pathname;
+    if (p === '/' || p === '/sites') {
+        res.setHeader('content-type', 'text/html');
+        get('/images/json')
+            .pipe(render.sites())
+            .pipe(layout())
+            .pipe(res)
+        ;
+    }
+    else est(req, res);
 });
 
 server.listen(argv.port, function () {
