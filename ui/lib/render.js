@@ -6,14 +6,16 @@ var fs = require('fs');
 var bulk = require('bulk-require');
 var files = bulk(__dirname + '/../render', [ '*.js' ]);
 module.exports = Object.keys(files).reduce(function (acc, file) {
-    acc[file] = function () { return wrap(file, files[file]) };
+    acc[file] = function () { return wrap(file + '.html', files[file]) };
     return acc;
 }, {});
 
 function wrap (file, fn) {
     var input = through({ objectMode: true }), output = through();
     fs.readFile(__dirname + '/../render/' + file, function (err, html) {
-        input.pipe(hyperspace(html, fn())).pipe(output);
+        if (err) dup.emit('error', err);
+        else input.pipe(hyperspace(html, fn())).pipe(output);
     });
-    return duplexer(input, output);
+    var dup = duplexer(input, output);
+    return dup;
 }
