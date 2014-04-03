@@ -49,9 +49,14 @@ body {
   width: 215px;
   border-radius: 3px;
   padding: 5px;
+  text-align: center;
 }
 
 .box:hover {
   background-color: #cfb7ff;
   cursor: pointer;
+}
+
+.box .label .key, .box .label .value {
+  display: inline-block;
 }
