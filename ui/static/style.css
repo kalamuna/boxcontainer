@@ -50,6 +50,7 @@ body {
   border-radius: 3px;
   padding: 5px;
   text-align: center;
+  vertical-align: top;
 }
 
 .box:hover {
@@ -57,6 +58,11 @@ body {
   cursor: pointer;
 }
 
-.box .label .key, .box .label .value {
+.box .color {
+  width: 1em;
+  height: 1em;
+}
+
+.box .fork {
   display: inline-block;
 }
