@@ -8,13 +8,17 @@ body {
   padding: 10px;
   padding-bottom: 0px;
   padding-top: 5px;
-  border-bottom: 2px solid #59397b;
 }
 
 #tabs {
-  background-color: #d4e6f6;
-  padding: 5px;
-  border-bottom: 2px solid #b6d6f5;
+  position: absolute;
+  left: 150px;
+  bottom: 0px;
+  right: 0px;
+  background-color: white;
+  padding: 15px;
+  padding-left: 30px;
+  border-top-left-radius: 15px;
 }
 
 #tabs .tab {
@@ -24,6 +28,7 @@ body {
   padding: 5px;
   cursor: pointer;
   border-width: 0px;
+  margin-right: 10px;
   border-radius: 2px;
 }
 
@@ -35,3 +40,12 @@ body {
   background-color: #d98003;
 }
 
+#content {
+  padding: 10px;
+}
+
+.site {
+  display: inline-block;
+  width: 215px;
+  height: 150px;
+}
