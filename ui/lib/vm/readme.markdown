@@ -9,60 +9,36 @@ work.
 
 ``` js
 var vm = require('./vm.js')();
-vm.list().on('data', console.log)
+vm.listImages().on('data', console.log)
 ```
 
 output:
 
 ```
-{ repository: 'shykes/nodejs',
-  tag: '0.8.23',
-  id: '6592508b0790d77cc19dc29d6288ef4b4d1bd493d971ff24ac4576e4892a6f63',
-  created: 1366510963,
-  size: 15790131,
-  virtualSize: 318189750 }
-{ repository: 'shykes/nodejs',
-  tag: 'latest',
-  id: '6592508b0790d77cc19dc29d6288ef4b4d1bd493d971ff24ac4576e4892a6f63',
-  created: 1366510963,
-  size: 15790131,
-  virtualSize: 318189750 }
-{ repository: 'substack/nodejs',
-  tag: '0.10.13',
+{ created: 1373458741,
   id: '8618b627dc6ec50a55e29635f82c767f2045d1a7b59279a338d91c573e02cf52',
-  created: 1373458741,
-  size: 62828646,
-  virtualSize: 381018396 }
-{ repository: 'ubuntu',
-  tag: '12.04',
+  parentId: '6592508b0790d77cc19dc29d6288ef4b4d1bd493d971ff24ac4576e4892a6f63',
+  repoTags: [ 'substack/nodejs:0.10.13' ],
+  size: 61257003,
+  virtualSize: 373409179 }
+{ created: 1366510963,
+  id: '6592508b0790d77cc19dc29d6288ef4b4d1bd493d971ff24ac4576e4892a6f63',
+  parentId: '0a2ff988ae2020c3c1b7645eb3ea1f336035b27f5e562c024c07069f96d4cd0a',
+  repoTags: [ 'shykes/nodejs:0.8.23', 'shykes/nodejs:latest' ],
+  size: 15073331,
+  virtualSize: 312152176 }
+{ created: 1365714795,
   id: '8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c',
-  created: 1365714795,
-  size: 131506275,
-  virtualSize: 131506275 }
-{ repository: 'ubuntu',
-  tag: '12.10',
+  parentId: '',
+  repoTags: [ 'ubuntu:12.04', 'ubuntu:latest', 'ubuntu:precise' ],
+  size: 128029199,
+  virtualSize: 128029199 }
+{ created: 1364102658,
   id: 'b750fe79269d2ec9a3c593ef05b4332b1d1a02a62b4accb2c21d589ff2f5f2dc',
-  created: 1364102658,
-  size: 24653,
-  virtualSize: 180116135 }
-{ repository: 'ubuntu',
-  tag: 'latest',
-  id: '8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c',
-  created: 1365714795,
-  size: 131506275,
-  virtualSize: 131506275 }
-{ repository: 'ubuntu',
-  tag: 'precise',
-  id: '8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c',
-  created: 1365714795,
-  size: 131506275,
-  virtualSize: 131506275 }
-{ repository: 'ubuntu',
-  tag: 'quantal',
-  id: 'b750fe79269d2ec9a3c593ef05b4332b1d1a02a62b4accb2c21d589ff2f5f2dc',
-  created: 1364102658,
-  size: 24653,
-  virtualSize: 180116135 }
+  parentId: '27cf784147099545',
+  repoTags: [ 'ubuntu:12.10', 'ubuntu:quantal' ],
+  size: 77,
+  virtualSize: 175307035 }
 ```
 
 # methods
@@ -77,6 +53,11 @@ Create a new `vm` handle given a `baseURI`. The default `baseURI` is
 `'http://localhost:4243'`, which is the host/port that docker listens on by
 default.
 
-## vm.list()
+## vm.listImages()
 
-Return an objectMode readable stream of the available VMs.
+Return an objectMode readable stream of the available vm images.
+
+## vm.listContainers()
+
+Return an objectMode readable stream of the available vm containers.
+Containers are provisioned virtual systems with virtual hardware.

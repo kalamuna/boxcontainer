@@ -13,15 +13,23 @@ var argv = minimist(process.argv.slice(2), {
     alias: { p: 'port' },
     default: { port: 0 }
 });
-var vm = require('./lib/vm.js')(argv.vm);
+var vm = require('./lib/vm')(argv.vm);
 
 var est = ecstatic(__dirname + '/static');
 var server = http.createServer(function (req, res) {
     var u = url.parse(req.url), p = u.pathname;
     if (p === '/' || p === '/sites') {
         res.setHeader('content-type', 'text/html');
-        vm.list()
-            .pipe(render.sites())
+        vm.containers.list()
+            .pipe(render.site())
+            .pipe(layout())
+            .pipe(res)
+        ;
+    }
+    else if (p === '/images') {
+        res.setHeader('content-type', 'text/html');
+        vm.images.list()
+            .pipe(render.image())
             .pipe(layout())
             .pipe(res)
         ;

@@ -44,8 +44,14 @@ body {
   padding: 10px;
 }
 
-.site {
+.box {
   display: inline-block;
   width: 215px;
-  height: 150px;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.box:hover {
+  background-color: #cfb7ff;
+  cursor: pointer;
 }
