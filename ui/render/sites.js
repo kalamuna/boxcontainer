@@ -1,7 +1,8 @@
 module.exports = function () {
     return function (row) {
         return {
-            '.id': row.Id
+            '.repository': row.repository,
+            '.id': row.id
         };
     };
 };

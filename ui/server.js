@@ -7,20 +7,20 @@ var url = require('url');
 
 var runBrowser = require('./lib/run_browser.js');
 var layout = require('./lib/layout.js');
-var get = require('./lib/get.js');
 var render = require('./lib/render.js');
 
 var argv = minimist(process.argv.slice(2), {
     alias: { p: 'port' },
     default: { port: 0 }
 });
+var vm = require('./lib/vm.js')(argv.vm);
 
 var est = ecstatic(__dirname + '/static');
 var server = http.createServer(function (req, res) {
     var u = url.parse(req.url), p = u.pathname;
     if (p === '/' || p === '/sites') {
         res.setHeader('content-type', 'text/html');
-        get('/images/json')
+        vm.list()
             .pipe(render.sites())
             .pipe(layout())
             .pipe(res)
