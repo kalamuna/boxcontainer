@@ -63,6 +63,19 @@ body {
   height: 1em;
 }
 
+.box .top {
+  height: 1.5em;
+}
+
+.box .top img {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.box .top * {
+  vertical-align: top;
+}
+
 .box .fork {
   display: inline-block;
 }
