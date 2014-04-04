@@ -52,6 +52,8 @@ body {
   padding: 5px;
   text-align: center;
   vertical-align: top;
+  padding-bottom: 50px;
+  min-height: 300px;
 }
 
 .box:hover {
@@ -60,8 +62,10 @@ body {
 }
 
 .box .color {
-  width: 1em;
+  display: inline-block;
+  width: 0.9em;
   height: 1em;
+  border: 1px solid rgb(127,127,127);
 }
 
 .box .top {
@@ -83,6 +87,7 @@ body {
 
 .box .tags {
   margin-left: 30px;
+  font-size: 0.8em;
 }
 
 .box .key {
@@ -92,4 +97,22 @@ body {
   background-color: rgb(230,220,250);
   padding: 2px;
   margin-bottom: 2px;
+}
+
+.box .info {
+  height: 6em;
+}
+
+.box .fork {
+  font-size: 0.8em;
+  vertical-align: bottom;
+  margin-top: 1em;
+}
+
+.box .fork img {
+  margin-bottom: -5px;
+}
+
+.box .fork .color {
+  margin-bottom: -2px;
 }
