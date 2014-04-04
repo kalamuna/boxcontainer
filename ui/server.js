@@ -36,7 +36,7 @@ var server = http.createServer(function (req, res) {
             .pipe(res)
         ;
     }
-    else if (path.dirname(p) === '/vendor') {
+    else if (p.split('/')[1] === 'vendor') {
         vendor(req, res);
     }
     else est(req, res);

@@ -1,5 +1,6 @@
 body {
   margin: 0px;
+  font-family: FontAwesome;
 }
 
 #header {
@@ -74,10 +75,6 @@ body {
 
 .box .top * {
   vertical-align: top;
-}
-
-.box .fork {
-  display: inline-block;
 }
 
 .box .label {
