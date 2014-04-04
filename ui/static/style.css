@@ -111,8 +111,10 @@ body {
 
 .box .fork img {
   margin-bottom: -5px;
+  margin-right: 5px;
 }
 
 .box .fork .color {
   margin-bottom: -2px;
+  margin-left: 5px;
 }
