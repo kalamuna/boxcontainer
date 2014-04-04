@@ -19,6 +19,10 @@ Images.prototype.list = function () {
     return get(this.base, '/images/json').pipe(lowerKeyStream());
 };
 
+Images.prototype.get = function (id, cb) {
+    request(this.base + '/images/' + id + '/json', { json: true }, cb);
+};
+
 function Containers (base) {
     if (!(this instanceof Containers)) return new Containers(base);
     this.base = base;

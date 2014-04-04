@@ -36,10 +36,20 @@ var server = http.createServer(function (req, res) {
             .pipe(res)
         ;
     }
+    else if (p.split('/')[1] === 'images') {
+        var r = render.image_detail();
+        r.pipe(layout()).pipe(res);
+        vm.images.get(p.split('/')[2], function (err, res, body) {
+            r.end(body);
+        });
+    }
     else if (p.split('/')[1] === 'vendor') {
         vendor(req, res);
     }
-    else est(req, res);
+    else {
+        req.url = req.url.replace(/^\/-\//, '/');
+        est(req, res);
+    }
 });
 
 server.listen(argv.port, function () {
