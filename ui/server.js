@@ -4,10 +4,12 @@ var http = require('http');
 var ecstatic = require('ecstatic');
 var minimist = require('minimist');
 var url = require('url');
+var path = require('path');
 
 var runBrowser = require('./lib/run_browser.js');
 var layout = require('./lib/layout.js');
 var render = require('./lib/render.js');
+var vendor = require('./lib/vendor.js');
 
 var argv = minimist(process.argv.slice(2), {
     alias: { p: 'port' },
@@ -33,6 +35,9 @@ var server = http.createServer(function (req, res) {
             .pipe(layout())
             .pipe(res)
         ;
+    }
+    else if (path.dirname(p) === '/vendor') {
+        vendor(req, res);
     }
     else est(req, res);
 });
