@@ -6,7 +6,6 @@ module.exports = function () {
         var pid = row.parentId.slice(0,6);
         return {
             '.id': id,
-            '.link': { href: '/images/' + row.id },
             '.id-color': { style: 'background-color: #' + id },
             '.parent': pid,
             '.parent-color': { style: 'background-color: #' + pid },
