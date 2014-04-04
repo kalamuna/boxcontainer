@@ -79,3 +79,20 @@ body {
 .box .fork {
   display: inline-block;
 }
+
+.box .label {
+  text-align: left;
+}
+
+.box .tags {
+  margin-left: 30px;
+}
+
+.box .key {
+  display: inline-block;
+  width: 90px;
+  margin-left: 15px;
+  background-color: rgb(230,220,250);
+  padding: 2px;
+  margin-bottom: 2px;
+}
